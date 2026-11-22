@@ -1,0 +1,8 @@
+node_modules
+dist
+coverage
+package-lock.json
+docs/MASTER_PLAN.md
+docs/plan
+prompts
+START-HERE.md
