@@ -33,10 +33,12 @@ import { Tooltip } from '../components/ui/Tooltip';
 import { TERMS, useTerm, type TermKey } from '../lib/terminology';
 import { ApiStatus } from './ApiStatus';
 import { SAMPLE_PAYMENT_METHODS, SAMPLE_STATES } from './sample-data';
+import { RouteMap } from './RouteMap';
 import { ShowcaseDataSections } from './ShowcaseData';
 import { Demo, ShowcaseSection } from './showcase-parts';
 
 const SECTIONS = [
+  ['routes', 'Route map'],
   ['tokens', 'Tokens'],
   ['buttons', 'Buttons'],
   ['forms', 'Form controls'],
@@ -211,6 +213,10 @@ export function ComponentsShowcase() {
           </a>
         ))}
       </nav>
+
+      <ShowcaseSection id="routes" title="Route map (every sidebar link and placeholder)">
+        <RouteMap />
+      </ShowcaseSection>
 
       <ShowcaseSection id="tokens" title="Tokens">
         <Demo label="Colours (switch theme to compare)">

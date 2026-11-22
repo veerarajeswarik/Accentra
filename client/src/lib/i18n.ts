@@ -7,6 +7,8 @@ import i18n from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
 import common from '../locales/en/common.json';
+import nav from '../locales/en/nav.json';
+import pages from '../locales/en/pages.json';
 import terms from '../locales/en/terms.json';
 import ui from '../locales/en/ui.json';
 
@@ -27,7 +29,7 @@ export const LANGUAGES: readonly LanguageOption[] = [
 ];
 
 export const resources = {
-  en: { common, terms, ui },
+  en: { common, terms, ui, nav, pages },
 } as const;
 
 export const NAMESPACES = Object.keys(resources.en);

@@ -1,0 +1,83 @@
+{
+  "areas": {
+    "entrepreneur": "Business workspace",
+    "ca": "CA workspace",
+    "admin": "Admin console"
+  },
+  "groups": {
+    "overview": "Overview",
+    "money": "Money",
+    "records": "Records",
+    "accountant": "Accountant",
+    "assist": "Assist",
+    "settings": "Settings",
+    "clients": "Clients",
+    "work": "Work",
+    "account": "Account",
+    "trust": "Trust & verification",
+    "platform": "Platform"
+  },
+  "items": {
+    "dashboard": "Dashboard",
+    "transactions": { "simple": "Money In & Out", "professional": "Transactions" },
+    "expenses": { "simple": "Expenses", "professional": "Expenditure" },
+    "sales": { "simple": "Sales & Invoices", "professional": "Sales / Receivables" },
+    "purchases": { "simple": "Purchases & Bills", "professional": "Purchases / Payables" },
+    "contacts": { "simple": "People", "professional": "Customers & Suppliers" },
+    "documents": "Documents",
+    "reports": { "simple": "Reports", "professional": "Financial Statements" },
+    "gst": "GST",
+    "myCa": "My CA",
+    "findCa": "Find a CA",
+    "reviews": "Reviews",
+    "messages": "Messages",
+    "tasks": "Tasks",
+    "assistant": "AI Assistant",
+    "learn": "Learning Hub",
+    "businessProfile": "Business Profile",
+    "settings": "Settings",
+    "clients": "Clients",
+    "pendingReviews": "Pending Reviews",
+    "requests": "Requests & Invitations",
+    "compliance": "Compliance",
+    "notifications": "Notifications",
+    "profile": "Professional Profile",
+    "platformOverview": "Platform Overview",
+    "caVerifications": "CA Verifications",
+    "users": "Users",
+    "audit": "Audit Log",
+    "support": "Support"
+  },
+  "shell": {
+    "mainNav": "Main navigation",
+    "skipToContent": "Skip to main content",
+    "collapse": "Collapse sidebar",
+    "expand": "Expand sidebar",
+    "openMenu": "Open menu",
+    "notifications": "Notifications",
+    "notificationsSoon": "Notifications arrive in Phase 13",
+    "userMenu": "Account menu",
+    "signedOut": "Not signed in — accounts arrive in Phase 4",
+    "signOutSoon": "Sign out (Phase 4)"
+  },
+  "public": {
+    "features": "Features",
+    "howItWorks": "How it works",
+    "about": "About",
+    "contact": "Contact",
+    "signIn": "Sign in",
+    "getStarted": "Get started",
+    "menu": "Menu",
+    "home": "Accentra home",
+    "tagline": "Your smart accounting partner — books on a real ledger, reviewed by your CA.",
+    "footer": {
+      "label": "Footer",
+      "product": "Product",
+      "company": "Company",
+      "legal": "Legal",
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "rights": "© {{year}} Accentra"
+    }
+  }
+}

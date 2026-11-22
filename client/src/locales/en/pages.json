@@ -1,0 +1,43 @@
+{
+  "comingSoon": {
+    "badge": "Coming soon",
+    "planned": "Planned for Phase {{phase}}",
+    "body": "This page is part of the Accentra build plan but has not been built yet. Nothing here is simulated."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "body": "The address may be mistyped, or the page may have moved.",
+    "home": "Go to home page"
+  },
+  "routeError": {
+    "title": "This page failed to load",
+    "body": "Something went wrong while showing this page. Reloading usually fixes it.",
+    "reload": "Reload page",
+    "home": "Go to home page"
+  },
+  "titles": {
+    "home": "Home",
+    "features": "Features",
+    "howItWorks": "How it works",
+    "about": "About",
+    "contact": "Contact",
+    "privacy": "Privacy policy",
+    "terms": "Terms of service",
+    "login": "Sign in",
+    "register": "Create your account",
+    "forgotPassword": "Forgot password",
+    "resetPassword": "Reset password",
+    "verifyEmail": "Verify your email",
+    "onboardingBusiness": "Set up your business",
+    "onboardingCaProfile": "Set up your CA profile",
+    "invite": "Accept your invitation",
+    "clientWorkspace": "Client workspace"
+  },
+  "authBrand": {
+    "headline": "Your books, reviewed by your CA — in one place.",
+    "point1": "Every entry posted to a real double-entry ledger",
+    "point2": "Share documents and get answers without email chains",
+    "point3": "Simple words by default, professional terms when you need them",
+    "illustration": "Illustration of a ledger card with a CA approval tick"
+  }
+}
