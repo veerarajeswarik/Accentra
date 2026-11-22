@@ -8,6 +8,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
 import common from '../locales/en/common.json';
 import terms from '../locales/en/terms.json';
+import ui from '../locales/en/ui.json';
 
 export const LANGUAGE_STORAGE_KEY = 'accentra-lang';
 
@@ -26,7 +27,7 @@ export const LANGUAGES: readonly LanguageOption[] = [
 ];
 
 export const resources = {
-  en: { common, terms },
+  en: { common, terms, ui },
 } as const;
 
 export const NAMESPACES = Object.keys(resources.en);

@@ -1,0 +1,41 @@
+{
+  "required": "required",
+  "optional": "optional",
+  "money": {
+    "invalid": "Enter an amount like 1,500.50 (up to 2 decimal places)",
+    "negative": "Amount cannot be negative",
+    "currencyLabel": "Indian rupees"
+  },
+  "select": {
+    "placeholder": "Select…"
+  },
+  "combobox": {
+    "placeholder": "Select…",
+    "search": "Search…",
+    "empty": "No matches found"
+  },
+  "date": {
+    "placeholder": "Pick a date",
+    "clear": "Clear date",
+    "open": "Open calendar"
+  },
+  "breadcrumbs": "Breadcrumb",
+  "delta": {
+    "up": "Up {{value}}",
+    "down": "Down {{value}}",
+    "flat": "No change"
+  },
+  "status": {
+    "draft": "Draft",
+    "submitted": "Submitted",
+    "under_review": "Under review",
+    "needs_clarification": "Needs clarification",
+    "approved": "Approved",
+    "rejected": "Rejected",
+    "paid": "Paid",
+    "unpaid": "Unpaid",
+    "overdue": "Overdue",
+    "verified": "Verified",
+    "pending": "Pending"
+  }
+}

@@ -205,6 +205,19 @@
   }
 }
 
+/* DatePicker calendar (react-day-picker) themed from our tokens, so it follows light/dark. */
+.accentra-calendar .rdp-root {
+  --rdp-accent-color: var(--primary);
+  --rdp-accent-background-color: var(--surface-2);
+  --rdp-today-color: var(--primary);
+  --rdp-day-height: 36px;
+  --rdp-day-width: 36px;
+  --rdp-day_button-height: 34px;
+  --rdp-day_button-width: 34px;
+  --rdp-selected-border: 2px solid var(--primary);
+  font-size: var(--text-body);
+}
+
 /* 5.10 / 5.11: honour reduced-motion preferences everywhere. */
 @media (prefers-reduced-motion: reduce) {
   *,
