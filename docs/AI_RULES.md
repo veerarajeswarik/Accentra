@@ -60,6 +60,16 @@ npm-workspaces monorepo (see `ARCHITECTURE.md` §3.2 for the full tree):
 ### UI text
 
 - **All UI text goes through i18n `t()` from Phase 2 onward.** No hardcoded user-facing strings in components.
+- Namespaces live in `client/src/locales/en/<namespace>.json`: `common`, `nav`, `pages`, `terms`, `ui`. Register a new namespace in `client/src/lib/i18n.ts`.
+- Primitives receive text via props; composite components may default to `t('ui:…')` keys.
+- Exemption: `client/src/dev/**` (the `/dev/components` showcase) is a developer tool that is excluded from production builds, so it may use literal English and sample data.
+
+### Design system
+
+- Reuse the components in `client/src/components/ui/` (inventory in `DESIGN_SYSTEM.md`). Do not recreate them inside features.
+- No raw hex colours in `client/src/components/**` or `client/src/features/**` (enforced by `npm run lint`). Use token classes.
+- Every new screen must be checked in light AND dark themes, and at 360px width.
+- New pages register their route in `client/src/router.tsx`, replacing the placeholder. Workspace pages are listed in `components/layout/nav-config.ts`.
 
 ### Git
 

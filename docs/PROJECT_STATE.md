@@ -4,10 +4,21 @@
 
 ## Current phase
 
-**Phase 1 — Foundation & Development Environment: complete (2026-11-22).**
-Next: **Phase 2** — `prompts/phase-02.md`.
+**Phase 2 — Design System, Theme & Application Shell: complete (2026-11-22).**
+Next: **Phase 3 — Public Website** — `prompts/phase-03.md`. Phase 3 replaces the public `ComingSoonPage` placeholders (`client/src/routes/placeholders.ts` → `PUBLIC_PAGES`) inside the existing `PublicLayout`.
 
 ## Completed phases
+
+### Phase 2 — Design System, Theme & Application Shell
+
+Built the whole client UI foundation in four sub-steps:
+
+- **2a:** design tokens as CSS variables (light/dark) mapped into Tailwind v4 with `@theme`; a no-flash theme script in `index.html`; `ThemeProvider` (light/dark/system, persisted), `ModeProvider` (Simple/Professional, persisted) with a terminology map and `useTerm`; the react-i18next scaffold (English; Tamil/Hindi shown as "coming soon"); a hex-colour ESLint rule.
+- **2b:** form and display components, including `MoneyInput`, which emits integer paise.
+- **2c:** data, overlay and feedback components: `DataTable` with stacked mobile cards, toasts, dialogs, `FileDropzone`, `ChartCard` + `useChartColors`.
+- **2d:** the three layouts, the entrepreneur/CA/admin sidebars from `nav-config.ts`, the React Router data router with honest "Planned for Phase N" placeholders, 404 and error pages, and the dev-only `/dev/components` showcase (with a route map), which is excluded from production builds. The Phase 1 health page became an "API status" indicator on the showcase.
+
+All components are listed in `DESIGN_SYSTEM.md` → "Component inventory".
 
 ### Phase 1 — Foundation & Development Environment
 
@@ -54,12 +65,34 @@ None yet.
 - `types/` — `ApiSuccess<T>`, `ApiMeta`, `ApiErrorBody`, `HealthStatus`.
 - `schemas/` — empty (Zod schemas arrive with features).
 
-### Client pages / components
+### Client routes (`client/src/router.tsx`)
 
-- `/` — temporary development health page (`client/src/App.tsx`); **replaced in Phase 3**.
-- `client/src/lib/apiClient.ts` — `apiClient.get/post/patch/delete`, `apiRequest`, `parseResponse`, `ApiError`.
-- `client/src/lib/queryClient.ts` — `createQueryClient()` (no retries on 4xx).
-- No design-system components yet (Phase 2).
+Every route below currently renders `ComingSoonPage` with its planned phase, except `/dev/components`.
+
+| Area         | Layout                                | Routes (planned phase)                                                                                                                                                                                                                                                                        |
+| ------------ | ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Public       | `PublicLayout`                        | `/` `/features` `/how-it-works` `/about` `/contact` `/privacy` `/terms` (3) · `*` → 404                                                                                                                                                                                                       |
+| Auth         | `AuthLayout`                          | `/login` `/register` `/forgot-password` `/reset-password` `/verify-email` (4) · `/onboarding/business` `/onboarding/ca-profile` (5) · `/invite/:token` (11)                                                                                                                                   |
+| Entrepreneur | `WorkspaceLayout` (`entrepreneurNav`) | `/app` (9) · `transactions` `expenses` `contacts` (7) · `documents` (8) · `reports` (9) · `sales` (16) · `purchases` (18) · `gst` (17) · `my-ca` `find-ca` (11) · `reviews` (14) · `messages` `tasks` (20) · `assistant` (21) · `learn` (24) · `settings/business` `settings` (5) · `*` → 404 |
+| CA           | `WorkspaceLayout` (`caNav`)           | `/ca` `clients` `clients/:businessId` (12) · `reviews` (14) · `requests` (11) · `compliance` `messages` (20) · `notifications` (13) · `profile` `settings` (10)                                                                                                                               |
+| Admin        | `WorkspaceLayout` (`adminNav`)        | `/admin` `users` `audit` `support` (25) · `ca-verifications` (10)                                                                                                                                                                                                                             |
+| Dev only     | none                                  | `/dev/components`: showcase of every component + route map + API status (registered only when `import.meta.env.DEV`)                                                                                                                                                                          |
+
+`RequireAuth` wraps `/app`, `/ca` and `/admin` but is a **placeholder that renders children** (real guard in Phase 4).
+
+### Client building blocks
+
+- `components/ui/`: the full design-system library (see the `DESIGN_SYSTEM.md` inventory).
+- `components/layout/`: `PublicLayout`, `AuthLayout`, `WorkspaceLayout`, `Sidebar`, `TopBar`, `Wordmark`, `RequireAuth`, `nav-config.ts`.
+- `pages/`: `ComingSoonPage`, `NotFoundPage`, `RouteErrorPage`.
+- `providers/`: `ThemeProvider`, `ModeProvider`, `AppProviders` (theme → mode → query client → tooltips → toasts).
+- `lib/`: `apiClient` (unchanged from Phase 1), `queryClient`, `i18n`, `terminology` (`useTerm`), `cn`, `storage` (safe localStorage), `chart-colors` (`useChartColors`), `use-media-query`, `format-bytes`.
+- `locales/en/`: `common`, `nav`, `pages`, `terms`, `ui`.
+- `dev/`: showcase, sample data (obviously fake), `ApiStatus`, `RouteMap`.
+
+### Browser storage keys (UI preferences only, never tokens)
+
+`accentra-theme` · `accentra-mode` · `accentra-lang` · `accentra-sidebar-collapsed`
 
 ## Environment variables
 
@@ -85,6 +118,10 @@ None yet.
 - npm 11 reports install scripts not yet approved for `esbuild` and `mongodb-memory-server`. Everything works without them (esbuild ships its binary as an optional dependency; mongodb-memory-server downloads mongod on first test run). Approve with `npm approve-scripts <pkg>` only if a problem appears.
 - TypeScript is pinned to 6.0.x because `typescript-eslint` 8.x does not yet support TypeScript 7. Revisit when it does.
 - The first server test run downloads a mongod binary (~100+ MB, cached afterwards).
+- Client production bundle is ~606 KB (191 KB gzip), above Vite's 500 KB warning. Fix by lazy-loading workspace pages as they are built (route-level `lazy`), at the latest in Phase 26.
+- The notification bell and the user menu's "Sign out" are visible placeholders, marked unavailable (Phases 13 and 4).
+- `ThemeProvider.onThemeChange` is a hook point; the theme is not yet synced to the user profile (Phase 4/5).
+- Phase 26 (CSP): the inline theme script in `client/index.html` must be allowed by its sha256 hash.
 
 ## Decisions log
 
@@ -99,3 +136,12 @@ None yet.
 | 2026-11-22 | `.gitattributes` forces LF line endings.                                                                                                               | Global `core.autocrlf` would otherwise create CRLF files that fail Prettier.                                                             |
 | 2026-11-22 | `.nvmrc` = 24 (engines `>=22`).                                                                                                                        | Node 24 is the current LTS and is installed.                                                                                             |
 | 2026-11-22 | `compact` `formatINR` uses K / L / Cr with one decimal, half-up, trailing `.0` dropped (`₹1L`, `₹1.2L`, `₹3.4Cr`); amounts under ₹1,000 shown in full. | Readable dashboard figures; rounding never shows "100.0K" (bumps to ₹1L).                                                                |
+| 2026-11-22 | Tailwind v4 has no config file: tokens are mapped with `@theme inline` in `globals.css`.                                                               | Official v4 approach; theme switching only swaps CSS variables.                                                                          |
+| 2026-11-22 | Hex-colour rule implemented as an ESLint `no-restricted-syntax` rule (components + features).                                                          | Runs inside `npm run lint`; no extra script to forget.                                                                                   |
+| 2026-11-22 | Unified `radix-ui` package; React 19 ref-as-prop instead of `forwardRef`.                                                                              | One dependency, tree-shaken; `forwardRef` is unnecessary in React 19.                                                                    |
+| 2026-11-22 | Added tokens `--danger-fg`, `--brand-panel`, `--brand-panel-fg`.                                                                                       | Readable text on danger buttons in dark mode; AuthLayout panel stays navy in both themes.                                                |
+| 2026-11-22 | CA and admin sidebar group headings chosen by us (Part 4.4/4.5 list routes only); approved by the user.                                                | Consistency with the entrepreneur sidebar.                                                                                               |
+| 2026-11-22 | Added `/onboarding/business`, `/onboarding/ca-profile`, `/invite/:token` and `/ca/clients/:businessId` as placeholders.                                | They are in Part 4; honest placeholders now avoid broken links later.                                                                    |
+| 2026-11-22 | `nav-config.ts` is the single source for sidebar items, workspace routes and placeholder phases.                                                       | Adding a page can't leave the sidebar and router out of sync.                                                                            |
+| 2026-11-22 | `useChartColors` re-reads CSS variables via a MutationObserver on `<html class>`.                                                                      | Charts switch colour in the same frame as the theme; no setState-in-effect.                                                              |
+| 2026-11-22 | `client/src/dev/**` may use literal English (recorded in AI_RULES).                                                                                    | Developer-only tool, excluded from production builds.                                                                                    |
