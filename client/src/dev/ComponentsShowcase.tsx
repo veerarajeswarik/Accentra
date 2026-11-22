@@ -33,6 +33,7 @@ import { Tooltip } from '../components/ui/Tooltip';
 import { TERMS, useTerm, type TermKey } from '../lib/terminology';
 import { ApiStatus } from './ApiStatus';
 import { SAMPLE_PAYMENT_METHODS, SAMPLE_STATES } from './sample-data';
+import { ShowcaseDataSections } from './ShowcaseData';
 import { Demo, ShowcaseSection } from './showcase-parts';
 
 const SECTIONS = [
@@ -43,6 +44,10 @@ const SECTIONS = [
   ['display', 'Cards & stats'],
   ['badges', 'Badges & avatars'],
   ['misc', 'Feedback & navigation'],
+  ['data', 'Data table'],
+  ['charts', 'Charts'],
+  ['overlays', 'Overlays & toasts'],
+  ['feedback', 'Page patterns'],
 ] as const;
 
 const COLOR_TOKENS = [
@@ -385,6 +390,8 @@ export function ComponentsShowcase() {
           />
         </Demo>
       </ShowcaseSection>
+
+      <ShowcaseDataSections />
     </div>
   );
 }

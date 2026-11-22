@@ -1,5 +1,6 @@
 import { QueryClientProvider, type QueryClient } from '@tanstack/react-query';
 import type { ReactNode } from 'react';
+import { ToastProvider } from '../components/ui/Toast';
 import { TooltipProvider } from '../components/ui/Tooltip';
 import { ModeProvider } from './ModeProvider';
 import { ThemeProvider } from './ThemeProvider';
@@ -16,7 +17,9 @@ export function AppProviders({
     <ThemeProvider>
       <ModeProvider>
         <QueryClientProvider client={queryClient}>
-          <TooltipProvider delayDuration={300}>{children}</TooltipProvider>
+          <TooltipProvider delayDuration={300}>
+            <ToastProvider>{children}</ToastProvider>
+          </TooltipProvider>
         </QueryClientProvider>
       </ModeProvider>
     </ThemeProvider>

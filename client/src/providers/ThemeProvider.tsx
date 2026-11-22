@@ -2,7 +2,7 @@ import {
   createContext,
   useCallback,
   useContext,
-  useEffect,
+  useLayoutEffect,
   useMemo,
   useState,
   useSyncExternalStore,
@@ -60,7 +60,9 @@ export function ThemeProvider({ children, onThemeChange }: ThemeProviderProps) {
   const resolvedTheme: ResolvedTheme =
     theme === 'system' ? (prefersDark ? 'dark' : 'light') : theme;
 
-  useEffect(() => {
+  // Layout effect: the class is applied before any child effect runs, so hooks such as
+  // useChartColors read the NEW theme's CSS variables in the same update.
+  useLayoutEffect(() => {
     document.documentElement.classList.toggle('dark', resolvedTheme === 'dark');
   }, [resolvedTheme]);
 

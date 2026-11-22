@@ -37,5 +37,47 @@
     "overdue": "Overdue",
     "verified": "Verified",
     "pending": "Pending"
+  },
+  "close": "Close",
+  "cancel": "Cancel",
+  "confirm": "Confirm",
+  "table": {
+    "rowActions": "Row actions",
+    "sortAscending": "Sort ascending",
+    "sortDescending": "Sort descending",
+    "loading": "Loading rows…"
+  },
+  "pagination": {
+    "label": "Pagination",
+    "previous": "Previous page",
+    "next": "Next page",
+    "range": "{{from}}–{{to}} of {{total}}",
+    "page": "Page {{page}} of {{pages}}",
+    "rowsPerPage": "Rows per page"
+  },
+  "toast": {
+    "dismiss": "Dismiss notification",
+    "region": "Notifications"
+  },
+  "error": {
+    "title": "Something went wrong",
+    "retry": "Try again"
+  },
+  "filter": {
+    "search": "Search",
+    "reset": "Reset filters"
+  },
+  "dropzone": {
+    "prompt": "Drag files here, or",
+    "browse": "browse",
+    "hint": "Up to {{size}} each",
+    "accepts": "Accepted: {{types}}",
+    "tooLarge": "{{name}} is larger than {{size}}",
+    "wrongType": "{{name}} is not an accepted file type",
+    "remove": "Remove {{name}}",
+    "selected": "Selected files"
+  },
+  "chart": {
+    "noData": "No data for this period yet"
   }
 }
