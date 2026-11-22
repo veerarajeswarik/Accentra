@@ -1,0 +1,8 @@
+{
+  "revenue": { "simple": "Money In", "professional": "Revenue" },
+  "expenses": { "simple": "Money Out", "professional": "Expenditure" },
+  "netProfit": { "simple": "Profit", "professional": "Net Profit" },
+  "receivables": { "simple": "Payments to Receive", "professional": "Accounts Receivable" },
+  "payables": { "simple": "Bills to Pay", "professional": "Accounts Payable" },
+  "cashBalance": { "simple": "Total Balance", "professional": "Cash & Bank" }
+}

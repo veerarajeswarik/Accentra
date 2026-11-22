@@ -1,0 +1,36 @@
+{
+  "appName": "Accentra",
+  "devBuild": "Accentra — development build",
+  "loading": "Loading…",
+  "theme": {
+    "label": "Theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System",
+    "current": "Theme: {{theme}}",
+    "switchTo": "Switch to {{theme}} theme"
+  },
+  "mode": {
+    "label": "Display mode",
+    "simple": "Simple",
+    "professional": "Professional"
+  },
+  "language": {
+    "label": "Language",
+    "comingSoon": "coming soon"
+  },
+  "health": {
+    "title": "API status",
+    "checking": "Checking API health…",
+    "unreachable": "API unreachable",
+    "hint": "Is the server running? Try npm run dev from the project root.",
+    "api": "API",
+    "database": "Database",
+    "version": "Version",
+    "serverTime": "Server time",
+    "sample": "Sample amount"
+  },
+  "preview": {
+    "terms": "Terminology in the current mode"
+  }
+}

@@ -54,4 +54,27 @@ export default defineConfig(
     extends: [reactHooks.configs.flat.recommended],
     languageOptions: { globals: globals.browser },
   },
+
+  // Design-system rule: components and features never use raw hex colours.
+  // Colours come only from the tokens in client/src/styles/globals.css (bg-surface, text-muted…).
+  {
+    files: ['client/src/components/**/*.{ts,tsx}', 'client/src/features/**/*.{ts,tsx}'],
+    rules: {
+      'no-restricted-syntax': [
+        'error',
+        {
+          selector: 'Literal[value=/#[0-9a-fA-F]{3,6}/]',
+          message: 'Raw hex colour. Use a design token class (e.g. bg-surface, text-danger).',
+        },
+        {
+          selector: 'TemplateElement[value.raw=/#[0-9a-fA-F]{3,6}/]',
+          message: 'Raw hex colour. Use a design token class (e.g. bg-surface, text-danger).',
+        },
+        {
+          selector: 'JSXText[value=/#[0-9a-fA-F]{3,6}/]',
+          message: 'Raw hex colour. Use a design token class (e.g. bg-surface, text-danger).',
+        },
+      ],
+    },
+  },
 );

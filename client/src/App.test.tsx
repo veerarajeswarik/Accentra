@@ -1,16 +1,7 @@
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import { App } from './App';
-
-function renderApp() {
-  const queryClient = new QueryClient({ defaultOptions: { queries: { retry: false } } });
-  return render(
-    <QueryClientProvider client={queryClient}>
-      <App />
-    </QueryClientProvider>,
-  );
-}
+import { renderWithProviders } from './test/render';
 
 describe('temporary health page', () => {
   it('shows live health status and a sample amount from the shared package', async () => {
@@ -26,7 +17,7 @@ describe('temporary health page', () => {
       ),
     );
 
-    renderApp();
+    renderWithProviders(<App />);
 
     expect(screen.getByText(/Checking API health/)).toBeDefined();
     expect((await screen.findByTestId('api-status')).textContent).toBe('ok');
@@ -37,7 +28,7 @@ describe('temporary health page', () => {
   it('shows an error state when the API is unreachable', async () => {
     vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new TypeError('Failed to fetch')));
 
-    renderApp();
+    renderWithProviders(<App />);
 
     expect((await screen.findByRole('alert')).textContent).toContain('API unreachable');
   });

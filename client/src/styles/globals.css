@@ -1,3 +1,218 @@
+/*
+ * Accentra design tokens — the ONLY place raw colour values may appear in the client.
+ * Source of truth: docs/DESIGN_SYSTEM.md (Part 5). Components use the Tailwind classes these
+ * variables generate (bg-surface, text-muted, border-border, bg-primary, ring-focus, …).
+ */
 @import 'tailwindcss';
 
-/* Theme tokens (light/dark) arrive in Phase 2 — see docs/DESIGN_SYSTEM.md. */
+/* `dark:` utilities follow the .dark class on <html> (set by ThemeProvider / index.html). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ── 5.2 Colour tokens ─────────────────────────────────────────────────────── */
+:root {
+  color-scheme: light;
+
+  --brand-navy: #0b1f3a;
+  --bg: #f6f8fb;
+  --surface: #ffffff;
+  --surface-2: #f1f4f8;
+  --border: #e2e7ef;
+  --text: #0f172a;
+  --text-muted: #5b6b82;
+  --primary: #0f766e;
+  --primary-hover: #115e59;
+  --primary-fg: #ffffff;
+  --accent: #1e3a8a;
+  --success: #15803d;
+  --warning: #b45309;
+  --danger: #b91c1c;
+  --danger-fg: #ffffff;
+  --focus-ring: rgb(15 118 110 / 0.4);
+  /* Fixed brand panel colours (AuthLayout) — same in both themes. */
+  --brand-panel: #0b1f3a;
+  --brand-panel-fg: #e6edf7;
+
+  /* Chart palette (ordered). */
+  --chart-1: #0f766e;
+  --chart-2: #4f46e5;
+  --chart-3: #d97706;
+  --chart-4: #e11d48;
+  --chart-5: #475569;
+  --chart-6: #059669;
+
+  /* 5.4 Elevation: only floating layers (menus, dialogs) get a shadow. */
+  --shadow-elevated: 0 8px 24px rgb(0 0 0 / 0.12);
+}
+
+.dark {
+  color-scheme: dark;
+
+  --brand-navy: #e6edf7;
+  --bg: #0a1220;
+  --surface: #111b2e;
+  --surface-2: #17233a;
+  --border: #24314a;
+  --text: #e6edf7;
+  --text-muted: #93a3ba;
+  --primary: #2dd4bf;
+  --primary-hover: #5eead4;
+  --primary-fg: #042f2e;
+  --accent: #93c5fd;
+  --success: #4ade80;
+  --warning: #fbbf24;
+  --danger: #f87171;
+  --danger-fg: #450a0a;
+  --focus-ring: rgb(45 212 191 / 0.5);
+
+  --chart-1: #2dd4bf;
+  --chart-2: #818cf8;
+  --chart-3: #fbbf24;
+  --chart-4: #fb7185;
+  --chart-5: #94a3b8;
+  --chart-6: #34d399;
+
+  --shadow-elevated: 0 8px 24px rgb(0 0 0 / 0.5);
+}
+
+/* Map the variables into Tailwind utilities. `inline` keeps them live when the theme changes. */
+@theme inline {
+  --color-brand-navy: var(--brand-navy);
+  --color-brand-panel: var(--brand-panel);
+  --color-brand-panel-fg: var(--brand-panel-fg);
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+  --color-text: var(--text);
+  --color-muted: var(--text-muted);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-fg: var(--primary-fg);
+  --color-accent: var(--accent);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+  --color-danger-fg: var(--danger-fg);
+  --color-focus: var(--focus-ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-chart-6: var(--chart-6);
+
+  --shadow-elevated: var(--shadow-elevated);
+}
+
+@theme {
+  /* ── 5.3 Typography ── */
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+
+  --text-display: 3rem;
+  --text-display--line-height: 3.5rem;
+  --text-display--font-weight: 650;
+  --text-h1: 1.75rem;
+  --text-h1--line-height: 2.25rem;
+  --text-h1--font-weight: 600;
+  --text-h2: 1.25rem;
+  --text-h2--line-height: 1.75rem;
+  --text-h2--font-weight: 600;
+  --text-h3: 1rem;
+  --text-h3--line-height: 1.5rem;
+  --text-h3--font-weight: 600;
+  --text-body: 0.875rem;
+  --text-body--line-height: 1.375rem;
+  --text-body-lg: 1rem;
+  --text-body-lg--line-height: 1.625rem;
+  --text-small: 0.75rem;
+  --text-small--line-height: 1.125rem;
+  --text-small--font-weight: 500;
+  --text-stat: 1.75rem;
+  --text-stat--line-height: 2.125rem;
+  --text-stat--font-weight: 600;
+
+  /* ── 5.4 Radius ── */
+  --radius-control: 6px;
+  --radius-card: 10px;
+  --radius-dialog: 14px;
+
+  /* ── 5.11 Motion: 200 ms fade + 4 px translate for floating layers ── */
+  --animate-fade-in: fade-in 200ms ease-out;
+  --animate-pop-in: pop-in 200ms ease-out;
+  --animate-slide-in-right: slide-in-right 200ms ease-out;
+  --animate-slide-in-left: slide-in-left 200ms ease-out;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+  }
+  @keyframes pop-in {
+    from {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+  }
+  @keyframes slide-in-right {
+    from {
+      opacity: 0;
+      transform: translateX(16px);
+    }
+  }
+  @keyframes slide-in-left {
+    from {
+      opacity: 0;
+      transform: translateX(-16px);
+    }
+  }
+}
+
+/* Tabular figures for every number column and stat. */
+@utility tabular {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings:
+    'tnum' 1,
+    'cv11' 1;
+}
+
+/* Small uppercase label style for table headers (5.3 "Small"). */
+@utility label-caps {
+  font-size: var(--text-small);
+  line-height: var(--text-small--line-height);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+@layer base {
+  html {
+    background-color: var(--bg);
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Keyboard users always see where focus is (3 px ring, 5.2 --focus-ring). */
+  :focus-visible {
+    outline: 3px solid var(--focus-ring);
+    outline-offset: 1px;
+  }
+}
+
+/* 5.10 / 5.11: honour reduced-motion preferences everywhere. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
