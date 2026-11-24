@@ -16,6 +16,15 @@ const EnvSchema = z.object({
   CLIENT_ORIGIN: z
     .url({ error: 'must be a full URL, e.g. http://localhost:5173' })
     .default('http://localhost:5173'),
+  /** Secret mixed into IP hashes so stored hashes can't be reversed by guessing IPs. */
+  IP_HASH_PEPPER: z
+    .string({ error: 'is required (see server/.env.example for how to generate one)' })
+    .min(32, { error: 'must be at least 32 characters (generate a random value)' }),
+  /**
+   * How many reverse proxies sit in front of the API (0 locally, 1 on Render).
+   * Needed so rate limiting sees the visitor's real IP, not the proxy's.
+   */
+  TRUST_PROXY: z.coerce.number().int().min(0).max(5).default(0),
 });
 
 export type Env = z.infer<typeof EnvSchema>;

@@ -12,10 +12,12 @@ import { logger } from './config/logger.js';
 import { createErrorHandler } from './middleware/error-handler.js';
 import { notFound } from './middleware/not-found.js';
 import { requestId } from './middleware/request-id.js';
-import { apiRouter } from './routes.js';
+import { createApiRouter } from './routes.js';
 
 export function createApp(): Express {
   const app = express();
+  // Behind Render/Vercel the visitor IP arrives in X-Forwarded-For; trust exactly N proxies.
+  app.set('trust proxy', env.TRUST_PROXY);
 
   app.use(requestId);
   app.use(
@@ -38,7 +40,7 @@ export function createApp(): Express {
   app.use(express.json({ limit: '1mb' }));
   app.use(cookieParser());
 
-  app.use('/api/v1', apiRouter);
+  app.use('/api/v1', createApiRouter());
 
   app.use(notFound);
   app.use(createErrorHandler({ isProduction }));
