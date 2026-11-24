@@ -14,10 +14,12 @@ export const CONTACT_LIMITS = {
   message: { min: 20, max: 2000 },
 } as const;
 
+/** Empty (after trimming) → "required" only; otherwise length rules apply. */
 const trimmed = (min: number, max: number, key: string) =>
   z
     .string({ error: `validation:${key}.required` })
     .trim()
+    .min(1, { error: `validation:${key}.required`, abort: true })
     .min(min, { error: `validation:${key}.tooShort` })
     .max(max, { error: `validation:${key}.tooLong` });
 
@@ -27,6 +29,7 @@ export const contactMessageSchema = z.object({
     .string({ error: 'validation:email.required' })
     .trim()
     .toLowerCase()
+    .min(1, { error: 'validation:email.required', abort: true })
     .max(CONTACT_LIMITS.email.max, { error: 'validation:email.tooLong' })
     .pipe(z.email({ error: 'validation:email.invalid' })),
   role: z.enum(CONTACT_ROLES, { error: 'validation:role.required' }),

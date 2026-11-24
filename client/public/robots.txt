@@ -1,0 +1,14 @@
+# Accentra — public marketing pages may be indexed; workspaces and dev tools may not.
+User-agent: *
+Allow: /
+Disallow: /app
+Disallow: /ca
+Disallow: /admin
+Disallow: /dev
+Disallow: /login
+Disallow: /register
+Disallow: /forgot-password
+Disallow: /reset-password
+Disallow: /verify-email
+Disallow: /onboarding
+Disallow: /invite

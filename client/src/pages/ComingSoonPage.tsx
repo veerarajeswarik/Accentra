@@ -19,6 +19,7 @@ export function ComingSoonPage({ title, phase }: ComingSoonPageProps) {
   const { t } = useTranslation('pages');
   return (
     <div className="mx-auto max-w-2xl py-6">
+      <title>{`${title} · Accentra`}</title>
       <Card>
         <EmptyState
           icon={<Hammer />}

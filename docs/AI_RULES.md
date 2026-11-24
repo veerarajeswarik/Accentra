@@ -37,6 +37,12 @@ npm-workspaces monorepo (see `ARCHITECTURE.md` §3.2 for the full tree):
 - Money field names **end in `Paise`**.
 - Convert user input with `toPaise()`, display with `formatINR()`, from `@accentra/shared`. Never `parseFloat` money.
 
+### Forms and validation
+
+- Forms use **React Hook Form + `zodResolver(sharedSchema)`** (see `client/src/features/marketing/contact/ContactForm.tsx`). Controlled components (Select, DatePicker, MoneyInput) go through `Controller`; use `useWatch`, not `watch()`.
+- The server validates the same schema with `validateBody(schema)` (`server/src/middleware/validate.ts`) before the controller runs.
+- Map server `VALIDATION_ERROR` details back onto fields with `setError`; show other failures in an error toast.
+
 ### Environment
 
 - `server/src/config/env.ts` is the **only** file that reads `process.env`. Add new variables to its Zod schema **and** to `server/.env.example` (with an explanation), and list them in `PROJECT_STATE.md`.
@@ -60,7 +66,8 @@ npm-workspaces monorepo (see `ARCHITECTURE.md` §3.2 for the full tree):
 ### UI text
 
 - **All UI text goes through i18n `t()` from Phase 2 onward.** No hardcoded user-facing strings in components.
-- Namespaces live in `client/src/locales/en/<namespace>.json`: `common`, `nav`, `pages`, `terms`, `ui`. Register a new namespace in `client/src/lib/i18n.ts`.
+- Namespaces live in `client/src/locales/en/<namespace>.json`: `common`, `nav`, `pages`, `terms`, `ui`, `validation` (registered in `client/src/lib/i18n.ts`) and `marketing` (registered lazily by `client/src/features/marketing/i18n.ts`, so it ships in the marketing chunk).
+- **Shared Zod schemas use i18n keys as error messages** (e.g. `validation:email.invalid`), never English. Forms translate them with `t(message)`; the API returns the same keys in `error.details[].message`. Add the key to `validation.json` when you add a rule.
 - Primitives receive text via props; composite components may default to `t('ui:…')` keys.
 - Exemption: `client/src/dev/**` (the `/dev/components` showcase) is a developer tool that is excluded from production builds, so it may use literal English and sample data.
 

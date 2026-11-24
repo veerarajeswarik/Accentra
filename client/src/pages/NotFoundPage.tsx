@@ -9,6 +9,8 @@ export function NotFoundPage({ homeTo = '/' }: { homeTo?: string }) {
   const { t } = useTranslation('pages');
   return (
     <div className="mx-auto max-w-xl py-16">
+      <title>{`${t('notFound.title')} · Accentra`}</title>
+      <meta name="robots" content="noindex" />
       <EmptyState
         icon={<SearchX />}
         titleAs="h1"

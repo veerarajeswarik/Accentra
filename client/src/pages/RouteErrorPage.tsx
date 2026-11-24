@@ -20,6 +20,7 @@ export function RouteErrorPage() {
 
   return (
     <div className="flex min-h-dvh items-center justify-center bg-bg p-4">
+      <title>{`${t('routeError.title')} · Accentra`}</title>
       <ErrorState
         title={t('routeError.title')}
         message={t('routeError.body')}

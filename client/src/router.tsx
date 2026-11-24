@@ -21,12 +21,8 @@ import { Spinner } from './components/ui/Spinner';
 import { ComingSoonPage } from './pages/ComingSoonPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { RouteErrorPage } from './pages/RouteErrorPage';
-import {
-  AUTH_PAGES,
-  CA_EXTRA_PAGES,
-  PUBLIC_PAGES,
-  type PlaceholderPage,
-} from './routes/placeholders';
+import { AUTH_PAGES, CA_EXTRA_PAGES, type PlaceholderPage } from './routes/placeholders';
+import { PUBLIC_PAGES, type PublicPageComponent } from './routes/public-pages';
 
 function NavPlaceholder({ item }: { item: NavItem }) {
   const labelOf = useNavLabel();
@@ -36,14 +32,6 @@ function NavPlaceholder({ item }: { item: NavItem }) {
 function PagePlaceholder({ page }: { page: PlaceholderPage }) {
   const { t } = useTranslation();
   return <ComingSoonPage title={t(page.titleKey)} phase={page.phase} />;
-}
-
-function PublicPlaceholder({ page }: { page: PlaceholderPage }) {
-  return (
-    <div className="mx-auto max-w-6xl px-4 py-10 md:px-6">
-      <PagePlaceholder page={page} />
-    </div>
-  );
 }
 
 function RootLayout() {
@@ -95,9 +83,7 @@ const devRoutes: RouteObject[] = import.meta.env.DEV
 
 /** The public website is one lazily loaded chunk (features/marketing). */
 const loadMarketing = () => import('./features/marketing');
-type MarketingPage = keyof Awaited<ReturnType<typeof loadMarketing>>;
-
-function marketingRoute(path: string, page: MarketingPage): RouteObject {
+function marketingRoute(path: string, page: PublicPageComponent): RouteObject {
   const lazy = async () => ({ Component: (await loadMarketing())[page] });
   return path === '' ? { index: true, lazy } : { path, lazy };
 }
@@ -121,10 +107,7 @@ export const routes: RouteObject[] = [
       {
         element: <PublicLayout />,
         children: [
-          marketingRoute('', 'HomePage'),
-          ...PUBLIC_PAGES.filter((page) => page.path !== '').map((page) =>
-            placeholderRoute(page, <PublicPlaceholder page={page} />),
-          ),
+          ...PUBLIC_PAGES.map(({ path, page }) => marketingRoute(path, page)),
           { path: '*', element: <NotFoundPage /> },
         ],
       },

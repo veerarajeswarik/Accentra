@@ -22,12 +22,21 @@ describe('contactMessageSchema', () => {
     [{ message: 'x'.repeat(2001) }, 'message', 'validation:message.tooLong'],
     [{ name: 'A' }, 'name', 'validation:name.tooShort'],
     [{ role: 'hacker' }, 'role', 'validation:role.required'],
-    [{ subject: '   ' }, 'subject', 'validation:subject.tooShort'],
+    [{ subject: '   ' }, 'subject', 'validation:subject.required'],
+    [{ subject: 'ab' }, 'subject', 'validation:subject.tooShort'],
+    [{ name: '' }, 'name', 'validation:name.required'],
+    [{ email: '' }, 'email', 'validation:email.required'],
   ])('rejects %j with an i18n key', (patch, path, key) => {
     const result = contactMessageSchema.safeParse({ ...valid, ...patch });
     expect(result.success).toBe(false);
     const issue = result.error?.issues.find((i) => i.path[0] === path);
     expect(issue?.message).toBe(key);
+  });
+
+  it('reports only ONE issue for an empty field', () => {
+    const result = contactMessageSchema.safeParse({ ...valid, message: '' });
+    const issues = result.error?.issues.filter((i) => i.path[0] === 'message') ?? [];
+    expect(issues.map((i) => i.message)).toEqual(['validation:message.required']);
   });
 
   it('reports a missing field with the "required" key', () => {

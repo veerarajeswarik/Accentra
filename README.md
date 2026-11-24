@@ -22,6 +22,8 @@ cd accentra
 npm install
 Copy-Item server\.env.example server\.env
 code server\.env          # paste your Atlas connection string into MONGODB_URI
+node -e "console.log(require('crypto').randomBytes(48).toString('base64url'))"
+                          # paste the output into IP_HASH_PEPPER in server\.env
 npm run dev               # client: http://localhost:5173   API: http://localhost:5000
 ```
 

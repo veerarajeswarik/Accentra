@@ -3,8 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Accentra — your smart accounting partner." />
-    <title>Accentra</title>
+    <!--
+      No <title> or description here on purpose: every page renders its own via React 19
+      (PageMeta / page components), and a static copy here would duplicate them.
+    -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#0B1F3A" />
     <!--
       Theme pre-mount script: applies the dark class BEFORE React loads, so dark-mode users
       never see a white flash. It only reads localStorage and sets a class.

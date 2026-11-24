@@ -94,10 +94,11 @@ describe('workspace shell', () => {
 describe('public and auth routes', () => {
   it('renders public pages inside the PublicLayout', async () => {
     renderAt('/features');
-    expect(await screen.findByTestId('planned-phase')).toHaveProperty(
-      'textContent',
-      'Planned for Phase 3',
-    );
+    // Built in Phase 3 (lazy marketing chunk), no longer a placeholder.
+    expect(
+      await screen.findByRole('heading', { level: 1, name: 'Features' }, { timeout: 15_000 }),
+    ).toBeDefined();
+    expect(screen.queryByTestId('planned-phase')).toBeNull();
     expect(screen.getByRole('link', { name: 'Get started' }).getAttribute('href')).toBe(
       '/register',
     );

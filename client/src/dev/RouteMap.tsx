@@ -10,7 +10,8 @@ import {
   useNavLabel,
   type WorkspaceArea,
 } from '../components/layout/nav-config';
-import { AUTH_PAGES, CA_EXTRA_PAGES, PUBLIC_PAGES } from '../routes/placeholders';
+import { AUTH_PAGES, CA_EXTRA_PAGES } from '../routes/placeholders';
+import { PUBLIC_PAGES } from '../routes/public-pages';
 
 interface Entry {
   to: string;
@@ -68,11 +69,11 @@ export function RouteMap() {
   return (
     <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
       <RouteList
-        title="Public (PublicLayout)"
+        title="Public (PublicLayout) — built in Phase 3"
         entries={PUBLIC_PAGES.map((p) => ({
           to: toUrl(p.path),
           label: t(p.titleKey),
-          phase: p.phase,
+          phase: 3,
         }))}
       />
       <RouteList
