@@ -43,7 +43,7 @@ function SidebarLink({
           'relative flex h-9 items-center gap-3 rounded-control px-3 text-body text-muted',
           'transition-colors duration-150 ease-out hover:bg-surface-2 hover:text-text',
           isActive &&
-            'bg-primary/10 font-medium text-primary hover:bg-primary/10 hover:text-primary',
+            'bg-primary/10 font-medium text-primary-strong hover:bg-primary/10 hover:text-primary-strong',
           collapsed && 'justify-center px-0',
         )
       }

@@ -9,12 +9,12 @@ export const badgeVariants = cva(
     variants: {
       variant: {
         neutral: 'bg-surface-2 text-muted ring-1 ring-border ring-inset',
-        primary: 'bg-primary/12 text-primary',
+        primary: 'bg-primary/12 text-primary-strong',
         info: 'bg-accent/12 text-accent',
         indigo: 'bg-chart-2/12 text-chart-2',
-        success: 'bg-success/12 text-success',
-        warning: 'bg-warning/14 text-warning',
-        danger: 'bg-danger/12 text-danger',
+        success: 'bg-success/12 text-success-strong',
+        warning: 'bg-warning/14 text-warning-strong',
+        danger: 'bg-danger/12 text-danger-strong',
       },
     },
     defaultVariants: { variant: 'neutral' },

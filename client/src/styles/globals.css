@@ -27,6 +27,12 @@
   --warning: #b45309;
   --danger: #b91c1c;
   --danger-fg: #ffffff;
+  /* 'Strong' text for coloured text on a tint of the same colour (badges, active nav):
+     the base colours fall just under 4.5:1 there in light mode. */
+  --primary-strong: #115e59;
+  --success-strong: #166534;
+  --warning-strong: #92400e;
+  --danger-strong: #991b1b;
   --focus-ring: rgb(15 118 110 / 0.4);
   /* Fixed brand panel colours (AuthLayout) — same in both themes. */
   --brand-panel: #0b1f3a;
@@ -62,6 +68,10 @@
   --warning: #fbbf24;
   --danger: #f87171;
   --danger-fg: #450a0a;
+  --primary-strong: var(--primary);
+  --success-strong: var(--success);
+  --warning-strong: var(--warning);
+  --danger-strong: var(--danger);
   --focus-ring: rgb(45 212 191 / 0.5);
 
   --chart-1: #2dd4bf;
@@ -93,6 +103,10 @@
   --color-warning: var(--warning);
   --color-danger: var(--danger);
   --color-danger-fg: var(--danger-fg);
+  --color-primary-strong: var(--primary-strong);
+  --color-success-strong: var(--success-strong);
+  --color-warning-strong: var(--warning-strong);
+  --color-danger-strong: var(--danger-strong);
   --color-focus: var(--focus-ring);
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);

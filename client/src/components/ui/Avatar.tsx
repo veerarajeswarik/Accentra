@@ -28,7 +28,7 @@ export function Avatar({ name, src, size = 'md', className }: AvatarProps) {
   return (
     <RadixAvatar.Root
       className={cn(
-        'inline-flex shrink-0 items-center justify-center overflow-hidden rounded-full bg-primary/15 font-semibold text-primary select-none',
+        'inline-flex shrink-0 items-center justify-center overflow-hidden rounded-full bg-primary/15 font-semibold text-primary-strong select-none',
         SIZES[size],
         className,
       )}

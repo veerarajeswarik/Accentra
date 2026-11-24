@@ -133,6 +133,7 @@ Every route below currently renders `ComingSoonPage` with its planned phase, exc
 - Main client chunk is ~611 KB (193 KB gzip): almost entirely framework code (react-dom, react-router, TanStack Query, i18next, Radix). Marketing pages are a separate lazy chunk (~228 KB / 71 KB gzip). Revisit vendor chunking for caching in Phase 26.
 - Contact rate limiting uses an in-memory store: correct for one server instance only. Use a shared store (e.g. MongoDB or Redis) if the API ever runs more than one instance.
 - The contact form has not yet been verified against MongoDB Atlas (no real `MONGODB_URI` yet); persistence is proven by tests against the in-memory replica set.
+- **Lighthouse (2026-11-24, production preview, mobile emulation):** Accessibility **100**, Best Practices **100**, SEO **100** on `/`, `/features`, `/contact` in light AND dark. Performance: `/` 55–76 (varies run to run), `/features` 80–90, `/contact` 93–95. `/` is held back by main-thread blocking time (680–1,830 ms) from rendering the long page client-side under 4× CPU throttling; FCP 0.8 s, CLS 0. Planned fix (Phase 26): pre-render the public pages to static HTML at build time.
 - About page: founder name, photo and bio are a marked TODO (`client/src/features/marketing/pages/AboutPage.tsx`).
 - The notification bell and the user menu's "Sign out" are visible placeholders, marked unavailable (Phases 13 and 4).
 - `ThemeProvider.onThemeChange` is a hook point; the theme is not yet synced to the user profile (Phase 4/5).

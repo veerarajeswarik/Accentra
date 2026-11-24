@@ -125,6 +125,7 @@ All components live in `client/src/components/ui/` (layouts in `components/layou
 - **Class merging:** always combine classes with `cn()` (`client/src/lib/cn.ts`). It knows the custom font sizes, so `text-small text-muted` both survive.
 - **Strings:** primitives take text via props. Composite components fall back to `t("ui:…")` defaults that callers can override. Feature code uses `t()` for everything.
 - **Tokens added beyond 5.2:** `--danger-fg` (text on danger buttons, for dark-theme contrast) and `--brand-panel` / `--brand-panel-fg` (AuthLayout brand panel, identical in both themes).
+- **`--primary-strong`, `--success-strong`, `--warning-strong`, `--danger-strong` (Phase 3):** use for coloured TEXT on a tint of the same colour (badges, active nav item, avatar initials). In light mode the base colours measure 3.8–4.3:1 on their own tint (below WCAG AA 4.5:1); the strong shades measure ≥ 5.3:1. In dark mode they equal the base colours. Classes: `text-primary-strong` etc.
 
 ### App controls, providers and hooks
 
