@@ -15,6 +15,7 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
+import { Accordion } from '../components/ui/Accordion';
 import { Badge } from '../components/ui/Badge';
 import { Breadcrumbs } from '../components/ui/Breadcrumbs';
 import { Button } from '../components/ui/Button';
@@ -414,6 +415,7 @@ function FeedbackDemo() {
           <TabsTrigger value="history">History</TabsTrigger>
           <TabsTrigger value="states">Empty & error</TabsTrigger>
           <TabsTrigger value="upload">Upload</TabsTrigger>
+          <TabsTrigger value="accordion">Accordion</TabsTrigger>
           <TabsTrigger value="disabled" disabled>
             Disabled
           </TabsTrigger>
@@ -470,6 +472,24 @@ function FeedbackDemo() {
               />
             </Card>
           </div>
+        </TabsContent>
+        <TabsContent value="accordion">
+          <Accordion
+            className="max-w-2xl"
+            items={[
+              {
+                id: 'q1',
+                title: 'Is my data shared with anyone?',
+                content: 'Only with the CA you connect with.',
+              },
+              { id: 'q2', title: 'Does Accentra file GST returns?', content: 'No, not currently.' },
+              {
+                id: 'q3',
+                title: 'What does Simple mode change?',
+                content: 'Only the words on screen.',
+              },
+            ]}
+          />
         </TabsContent>
         <TabsContent value="upload">
           <FileDropzone

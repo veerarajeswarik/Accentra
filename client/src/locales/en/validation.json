@@ -1,0 +1,25 @@
+{
+  "name": {
+    "required": "Enter your name",
+    "tooShort": "Name must be at least 2 characters",
+    "tooLong": "Name must be at most 100 characters"
+  },
+  "email": {
+    "required": "Enter your email address",
+    "invalid": "Enter a valid email address, like name@example.com",
+    "tooLong": "Email must be at most 254 characters"
+  },
+  "role": {
+    "required": "Choose one option"
+  },
+  "subject": {
+    "required": "Enter a subject",
+    "tooShort": "Subject must be at least 3 characters",
+    "tooLong": "Subject must be at most 150 characters"
+  },
+  "message": {
+    "required": "Enter a message",
+    "tooShort": "Message must be at least 20 characters",
+    "tooLong": "Message must be at most 2000 characters"
+  }
+}

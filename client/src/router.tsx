@@ -17,6 +17,7 @@ import {
 import { PublicLayout } from './components/layout/PublicLayout';
 import { RequireAuth } from './components/layout/RequireAuth';
 import { WorkspaceLayout } from './components/layout/WorkspaceLayout';
+import { Spinner } from './components/ui/Spinner';
 import { ComingSoonPage } from './pages/ComingSoonPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { RouteErrorPage } from './pages/RouteErrorPage';
@@ -92,15 +93,38 @@ const devRoutes: RouteObject[] = import.meta.env.DEV
     ]
   : [];
 
+/** The public website is one lazily loaded chunk (features/marketing). */
+const loadMarketing = () => import('./features/marketing');
+type MarketingPage = keyof Awaited<ReturnType<typeof loadMarketing>>;
+
+function marketingRoute(path: string, page: MarketingPage): RouteObject {
+  const lazy = async () => ({ Component: (await loadMarketing())[page] });
+  return path === '' ? { index: true, lazy } : { path, lazy };
+}
+
+/** Shown while a lazy route's code downloads (first visit only). */
+function RouteLoading() {
+  const { t } = useTranslation();
+  return (
+    <div className="flex min-h-dvh items-center justify-center bg-bg">
+      <Spinner size="lg" label={t('loading')} />
+    </div>
+  );
+}
+
 export const routes: RouteObject[] = [
   {
     element: <RootLayout />,
     errorElement: <RouteErrorPage />,
+    HydrateFallback: RouteLoading,
     children: [
       {
         element: <PublicLayout />,
         children: [
-          ...PUBLIC_PAGES.map((page) => placeholderRoute(page, <PublicPlaceholder page={page} />)),
+          marketingRoute('', 'HomePage'),
+          ...PUBLIC_PAGES.filter((page) => page.path !== '').map((page) =>
+            placeholderRoute(page, <PublicPlaceholder page={page} />),
+          ),
           { path: '*', element: <NotFoundPage /> },
         ],
       },

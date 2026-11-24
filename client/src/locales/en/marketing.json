@@ -1,0 +1,486 @@
+{
+  "status": {
+    "available": "Available",
+    "comingSoon": "Coming soon",
+    "inDevelopment": "In development · use sample data only",
+    "sample": "Sample data"
+  },
+  "meta": {
+    "home": "Keep your business books ready for your Chartered Accountant. Record money in and out, share documents, and get reviews with a full history.",
+    "features": "What Accentra does today and what is coming next: bookkeeping, CA collaboration, insights and India-first features.",
+    "howItWorks": "How entrepreneurs and Chartered Accountants use Accentra, step by step.",
+    "about": "Why Accentra exists and the principles behind it.",
+    "contact": "Questions or feedback about Accentra? Send us a message.",
+    "privacy": "Draft privacy policy for Accentra, pending legal review.",
+    "terms": "Draft terms of service for Accentra, pending legal review."
+  },
+  "home": {
+    "hero": {
+      "title": "Books your CA can review without the back-and-forth",
+      "subtitle": "Record money in and out on a real ledger, share documents in one place, and let your Chartered Accountant review, ask questions and approve.",
+      "primary": "Get started free",
+      "secondary": "See how it works",
+      "previewLabel": "Preview of the Accentra dashboard with sample numbers and a review history",
+      "previewTitle": "This month",
+      "previewReview": "GST working — October"
+    },
+    "problems": {
+      "title": "Sound familiar?",
+      "items": {
+        "scattered": {
+          "title": "Documents everywhere",
+          "body": "Bills on WhatsApp, statements in email, receipts in a drawer. Nobody has the full picture."
+        },
+        "numbers": {
+          "title": "Numbers you can't read",
+          "body": "You run the business, but the reports use words like accrual and ledger, so you wait for someone to explain."
+        },
+        "chasing": {
+          "title": "Your CA keeps asking",
+          "body": "Your accountant asks for the same bank statement twice because the first one got lost in a chat."
+        }
+      }
+    },
+    "audiences": {
+      "entrepreneurs": {
+        "title": "For entrepreneurs",
+        "body": "Keep your books in order without becoming an accountant.",
+        "cta": "Start as an entrepreneur",
+        "items": {
+          "record": {
+            "title": "Record in plain words",
+            "body": "Say what happened — money in, money out — and Accentra posts the proper ledger entry."
+          },
+          "oneplace": {
+            "title": "One place for documents",
+            "body": "Upload bills and statements once, link them to transactions, and find them later."
+          },
+          "understand": {
+            "title": "See where you stand",
+            "body": "Money in, money out and profit, calculated from your ledger, in everyday language."
+          },
+          "ownCa": {
+            "title": "Bring your own CA",
+            "body": "Invite the accountant you already trust and choose exactly what they can see."
+          }
+        }
+      },
+      "cas": {
+        "title": "For Chartered Accountants",
+        "body": "Review client books in a structured way instead of through chat threads.",
+        "cta": "Start as a CA",
+        "items": {
+          "queue": {
+            "title": "One review queue",
+            "body": "See every pending review across your clients, with status and due items."
+          },
+          "clarify": {
+            "title": "Ask, don't chase",
+            "body": "Request a clarification on a specific document; the client is notified and replies in context."
+          },
+          "ledger": {
+            "title": "A real double-entry ledger",
+            "body": "Every entry balances and corrections are reversals, so the trail is always intact."
+          },
+          "verified": {
+            "title": "Verified profile",
+            "body": "Your ICAI membership is checked by a person before your profile shows a verified badge."
+          }
+        }
+      }
+    },
+    "workflow": {
+      "title": "How a review works",
+      "subtitle": "The same five steps every time, with every action recorded.",
+      "stepsLabel": "Review workflow steps",
+      "steps": {
+        "upload": {
+          "title": "Upload",
+          "body": "You upload the October GST working and link it to the related transactions."
+        },
+        "submit": {
+          "title": "Submit for review",
+          "body": "You send it to your CA. It moves to their review queue with status Submitted."
+        },
+        "clarify": {
+          "title": "CA asks a question",
+          "body": "Your CA needs the rent agreement and requests a clarification with a note."
+        },
+        "resubmit": {
+          "title": "You fix and resubmit",
+          "body": "You attach the missing file and resubmit. The history keeps both versions."
+        },
+        "approved": {
+          "title": "Approved",
+          "body": "Your CA approves. You both see who did what and when."
+        }
+      },
+      "actors": {
+        "owner": "You",
+        "ca": "Your CA"
+      },
+      "actions": {
+        "uploaded": "uploaded GST working (October).pdf",
+        "submitted": "submitted it for review",
+        "clarification": "requested clarification",
+        "resubmitted": "resubmitted with 1 new file",
+        "approved": "approved the review"
+      },
+      "note": "Please attach the October rent agreement."
+    },
+    "modes": {
+      "title": "Your words or your CA's words",
+      "subtitle": "Simple mode uses everyday words. Professional mode uses accounting terms. The ledger and the numbers stay exactly the same.",
+      "toggleHint": "Switch the mode to see the labels change:"
+    },
+    "trust": {
+      "title": "How we handle your data",
+      "items": {
+        "https": {
+          "title": "Encrypted connections",
+          "body": "Everything between your browser and Accentra travels over HTTPS."
+        },
+        "sharing": {
+          "title": "Shared only with the CA you choose",
+          "body": "Your CA sees only what you share, and you can revoke access at any time."
+        },
+        "history": {
+          "title": "Full history",
+          "body": "Entries are never silently edited. Corrections are recorded, so every change can be traced."
+        },
+        "verified": {
+          "title": "CA credentials checked",
+          "body": "Chartered Accountants are verified manually before they get a verified badge."
+        }
+      }
+    },
+    "upcoming": {
+      "title": "Coming next",
+      "subtitle": "Planned, not available yet.",
+      "items": {
+        "ai": {
+          "title": "AI explanations",
+          "body": "Ask why profit dropped; the answer uses numbers calculated from your ledger."
+        },
+        "languages": {
+          "title": "Tamil & Hindi",
+          "body": "The full interface in தமிழ் and हिन्दी."
+        },
+        "voice": {
+          "title": "Voice entry",
+          "body": "Speak a transaction and confirm the draft before anything is saved."
+        },
+        "gst": {
+          "title": "GST summaries",
+          "body": "Output tax and input credit summaries to prepare returns with your CA."
+        }
+      }
+    },
+    "faq": {
+      "title": "Questions",
+      "items": {
+        "sharing": {
+          "q": "Is my data shared with anyone?",
+          "a": "Only with the Chartered Accountant you connect with, and only the parts you choose. You can revoke their access at any time. We do not sell your data."
+        },
+        "needCa": {
+          "q": "Do I need an accountant to use Accentra?",
+          "a": "No. You can record transactions and keep documents on your own. Connecting a CA is optional."
+        },
+        "replaceCa": {
+          "q": "Is Accentra a replacement for my CA?",
+          "a": "No. Accentra helps you and your CA work together. Professional advice, audits and filings remain your CA's work."
+        },
+        "gst": {
+          "q": "Does Accentra file my GST returns?",
+          "a": "No, not currently. GST summaries are planned to help you and your CA prepare returns, but filing is done by you or your CA on the GST portal."
+        },
+        "caNotOnAccentra": {
+          "q": "What if my CA isn't on Accentra?",
+          "a": "You can invite them by email. Once they join, they can review what you share with them."
+        },
+        "languages": {
+          "q": "Can I use Accentra in Tamil or Hindi?",
+          "a": "Not yet. Accentra is in English today; Tamil and Hindi are planned."
+        },
+        "simpleMode": {
+          "q": "What does Simple mode change?",
+          "a": "Only the words on screen. Both modes use the same ledger and show the same numbers."
+        },
+        "realBooks": {
+          "q": "Can I put my real business books on Accentra today?",
+          "a": "Not yet. Accentra is a product in development. Please use sample data only until it has completed a security review and launched."
+        }
+      }
+    },
+    "cta": {
+      "title": "Get your books CA-ready",
+      "body": "Create a free account and try it with sample data.",
+      "primary": "Get started free",
+      "secondary": "Contact us"
+    }
+  },
+  "features": {
+    "title": "Features",
+    "subtitle": "Each feature is marked Available or Coming soon. We update these labels as each part is built.",
+    "groups": {
+      "bookkeeping": "Bookkeeping",
+      "collaboration": "Collaboration",
+      "insights": "Insights",
+      "india": "Built for India"
+    },
+    "items": {
+      "recordMoney": {
+        "title": "Money in & out",
+        "body": "Record sales, expenses, transfers and owner money with a category and payment method."
+      },
+      "ledger": {
+        "title": "Double-entry ledger",
+        "body": "Every record posts a balanced journal entry. Corrections are reversals, never silent edits."
+      },
+      "contacts": {
+        "title": "Customers & suppliers",
+        "body": "Keep the people you deal with in one list and link them to transactions."
+      },
+      "invoices": {
+        "title": "GST invoices",
+        "body": "Numbered invoices with GST lines, PDF download and payment tracking."
+      },
+      "purchases": {
+        "title": "Purchases & bills",
+        "body": "Record supplier bills and payments so you always know what you owe."
+      },
+      "inviteCa": {
+        "title": "Invite your CA",
+        "body": "Send your accountant an email invitation and choose what they can access."
+      },
+      "documents": {
+        "title": "Document storage",
+        "body": "Private uploads with categories, versions and links to transactions."
+      },
+      "reviews": {
+        "title": "Review requests",
+        "body": "Submit documents for review; your CA approves or asks for clarification."
+      },
+      "history": {
+        "title": "Review history",
+        "body": "A timeline of every submission, question, reply and approval."
+      },
+      "notifications": {
+        "title": "Notifications",
+        "body": "Know when your CA replies or a client submits something."
+      },
+      "messages": {
+        "title": "Messages & tasks",
+        "body": "Conversations and to-dos with your CA, kept next to the work."
+      },
+      "dashboard": {
+        "title": "Dashboard",
+        "body": "Money in, money out and profit, calculated from the ledger."
+      },
+      "profitLoss": {
+        "title": "Profit & loss",
+        "body": "A clear profit and loss statement for any period."
+      },
+      "statements": {
+        "title": "Full statements",
+        "body": "Balance sheet, cash flow, trial balance and ageing, with PDF and Excel export."
+      },
+      "modes": {
+        "title": "Simple & Professional modes",
+        "body": "Everyday words or accounting terms over the same numbers."
+      },
+      "aiExplain": {
+        "title": "AI explanations",
+        "body": "Ask questions about your numbers; answers use figures computed from your ledger."
+      },
+      "verifiedCas": {
+        "title": "Verified CA directory",
+        "body": "Find Chartered Accountants whose credentials have been checked."
+      },
+      "gstSummaries": {
+        "title": "GST summaries",
+        "body": "CGST, SGST and IGST summaries and potential input credit."
+      },
+      "languages": { "title": "Tamil & Hindi", "body": "The full interface in Indian languages." },
+      "voice": {
+        "title": "Voice entry",
+        "body": "Speak a transaction in your language and confirm before saving."
+      },
+      "learning": {
+        "title": "Learning hub",
+        "body": "Short lessons on bookkeeping basics for business owners."
+      }
+    }
+  },
+  "howItWorks": {
+    "title": "How it works",
+    "subtitle": "Two sides of the same workflow.",
+    "tabsLabel": "Choose a role",
+    "tabs": { "entrepreneur": "For entrepreneurs", "ca": "For CAs" },
+    "entrepreneur": {
+      "s1": {
+        "title": "Create your business",
+        "body": "Add your business details and financial year. A standard chart of accounts is set up for you."
+      },
+      "s2": {
+        "title": "Record money in and out",
+        "body": "Each entry posts a balanced journal entry behind the scenes."
+      },
+      "s3": {
+        "title": "Upload documents",
+        "body": "Attach bills, receipts and statements to the right transactions."
+      },
+      "s4": {
+        "title": "Invite your CA",
+        "body": "Send an invitation and choose what they can see."
+      },
+      "s5": {
+        "title": "Submit for review",
+        "body": "Answer clarifications in one place until your CA approves."
+      }
+    },
+    "ca": {
+      "s1": {
+        "title": "Create your profile",
+        "body": "Add your ICAI membership details and upload your certificate for verification."
+      },
+      "s2": {
+        "title": "Accept client invitations",
+        "body": "Clients invite you; you see only what they share."
+      },
+      "s3": {
+        "title": "Work from one queue",
+        "body": "Pending reviews from all clients appear in one list."
+      },
+      "s4": {
+        "title": "Approve or ask",
+        "body": "Approve, or request clarification with a note on the exact document."
+      },
+      "s5": {
+        "title": "Keep the trail",
+        "body": "Every review keeps its full history for later reference."
+      }
+    }
+  },
+  "about": {
+    "title": "About Accentra",
+    "mission": {
+      "title": "Why we are building this",
+      "body": "Small businesses in India already work with Chartered Accountants, but the work happens over WhatsApp, email and phone calls. Documents get lost, questions get repeated, and owners rarely understand their own numbers. Accentra puts the books, the documents and the review conversation in one place, on a ledger an accountant can trust."
+    },
+    "principles": {
+      "title": "Principles",
+      "simple": {
+        "title": "Simple",
+        "body": "Plain words first. Accounting terms are one switch away."
+      },
+      "transparent": {
+        "title": "Transparent",
+        "body": "Nothing is edited silently. Every change leaves a record."
+      },
+      "india": {
+        "title": "India-first",
+        "body": "Rupees, lakh and crore, GST, and Indian languages are the starting point, not add-ons."
+      },
+      "ai": {
+        "title": "AI only where useful",
+        "body": "AI explains numbers; it never calculates them on its own or acts without your confirmation."
+      }
+    },
+    "team": {
+      "title": "Built by",
+      "todo": "Founder name, photo and short bio will be added here.",
+      "todoLabel": "To be added"
+    }
+  },
+  "contact": {
+    "title": "Contact us",
+    "subtitle": "Questions, feedback, or interested in trying Accentra with your clients? We read every message.",
+    "form": {
+      "name": "Your name",
+      "email": "Email",
+      "role": "I am",
+      "rolePlaceholder": "Choose one",
+      "roles": {
+        "entrepreneur": "A business owner",
+        "ca": "A Chartered Accountant",
+        "other": "Something else"
+      },
+      "subject": "Subject",
+      "message": "Message",
+      "messageHelp": "{{count}} / {{max}} characters",
+      "website": "Leave this field empty",
+      "submit": "Send message",
+      "required": "required"
+    },
+    "success": {
+      "title": "Message sent",
+      "body": "Thank you. We will reply to {{email}}.",
+      "another": "Send another message"
+    },
+    "errors": {
+      "toastTitle": "Your message was not sent",
+      "generic": "Please check your connection and try again.",
+      "rateLimited": "You have sent several messages recently. Please try again in about 15 minutes."
+    },
+    "privacyNote": "We use your details only to reply to you. See our privacy policy."
+  },
+  "legal": {
+    "banner": "Draft — pending legal review. Accentra is currently a demonstration product.",
+    "updated": "Last updated: {{date}}",
+    "contactLine": "Questions about this document? Use the contact page.",
+    "privacy": {
+      "title": "Privacy policy",
+      "intro": "This draft explains what information Accentra collects, why, and what control you have over it. We intend to align with India's Digital Personal Data Protection Act, 2023. This draft has not been reviewed by a lawyer and does not claim compliance.",
+      "sections": {
+        "collect": {
+          "title": "What we collect",
+          "body": "Account details you give us (name, email, phone, role). Business records you enter (transactions, contacts, documents). Messages you send through the contact form. Technical data needed to run the service, such as a one-way hash of your IP address used to prevent abuse — we do not store raw IP addresses from the contact form."
+        },
+        "why": {
+          "title": "Why we collect it",
+          "body": "To provide the service you asked for: keeping your books, sharing them with your CA, and replying to your messages. We do not use your financial records for advertising."
+        },
+        "sharing": {
+          "title": "Who we share it with",
+          "body": "Only with Chartered Accountants you connect with, limited to what you choose to share, and only until you revoke access. Service providers that host the application (database, file storage, email) process data on our behalf. We do not sell personal data."
+        },
+        "delete": {
+          "title": "How to delete your data",
+          "body": "You can ask us to delete your account and its data at any time through the contact page. Some records may need to be kept for a limited period where the law requires it."
+        },
+        "contact": {
+          "title": "Contact",
+          "body": "For privacy questions or requests, use the contact page and choose the subject \"Privacy\"."
+        }
+      }
+    },
+    "terms": {
+      "title": "Terms of service",
+      "intro": "These draft terms describe how Accentra may be used while it is in development. They have not been reviewed by a lawyer.",
+      "sections": {
+        "demo": {
+          "title": "Demonstration product",
+          "body": "Accentra is in development. Use sample data only. Do not rely on Accentra for real accounting, tax or compliance decisions."
+        },
+        "advice": {
+          "title": "Not professional advice",
+          "body": "Accentra is a record-keeping and collaboration tool. It does not provide accounting, tax or legal advice and does not file returns. Consult your Chartered Accountant."
+        },
+        "account": {
+          "title": "Your account",
+          "body": "Keep your login details private. You are responsible for the information you enter and share."
+        },
+        "data": {
+          "title": "Your data",
+          "body": "Your records remain yours. See the privacy policy for how they are handled and how to delete them."
+        },
+        "changes": {
+          "title": "Changes",
+          "body": "We may update these terms as the product develops. Significant changes will be announced in the app."
+        }
+      }
+    }
+  }
+}

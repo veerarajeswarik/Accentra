@@ -11,6 +11,7 @@ import nav from '../locales/en/nav.json';
 import pages from '../locales/en/pages.json';
 import terms from '../locales/en/terms.json';
 import ui from '../locales/en/ui.json';
+import validation from '../locales/en/validation.json';
 
 export const LANGUAGE_STORAGE_KEY = 'accentra-lang';
 
@@ -29,7 +30,7 @@ export const LANGUAGES: readonly LanguageOption[] = [
 ];
 
 export const resources = {
-  en: { common, terms, ui, nav, pages },
+  en: { common, terms, ui, nav, pages, validation },
 } as const;
 
 export const NAMESPACES = Object.keys(resources.en);
